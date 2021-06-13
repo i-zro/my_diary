@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>{{username}}님! 오늘 하루 일기쓰기로, 하루를 정리해요!</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    
+    <style>
+        *{ font-family : Do Hyeon}
+        #myimg {
+            width: 600px;
+            border: 1px solid black;
+            margin: 20px auto 20px auto;
+            box-sizing: border-box;
+        }
+
+        #myimg img {
+            width: 100%;
+        }
+
+        .wrap {
+            width: 600px;
+            height: auto;
+
+            margin: 50px auto 50px auto;
+        }
+
+        .content {
+            height: 180px;
+        }
+
+        .btn-cancel {
+            width: 200px;
+            height: 50px;
+            margin: 30px 20px auto 20px;
+        }
+
+        .btn-post {
+            width: 200px;
+            height: 50px;
+            margin: 30px 20px auto 20px;
+        }
+        .filebox label {
+            display: inline-block;
+            padding: .5em .75em;
+            color: #fff;
+            font-size: inherit;
+            line-height: normal;
+            vertical-align: middle;
+            background-color: #5cb85c;
+            cursor: pointer;
+            border: 1px solid #4cae4c;
+            border-radius: .25em;
+            -webkit-transition: background-color 0.2s;
+            transition: background-color 0.2s;
+          }
+          
+          .filebox label:hover {
+            background-color: #6ed36e;
+          }
+          
+          .filebox label:active {
+            background-color: #367c36;
+          }
+          
+          .filebox input[type="file"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+          }
+        .buttons {
+            text-align: center;
+            margin: auto;
+        }
+
+        .head {
+            display: inline-block;
+            width: 100%;
+            padding: 30px;
+
+            font-size: 17px;
+
+            background: linear-gradient(90deg, #DAE2F8, #D6A4A4);
+
+            border-radius: 0 0 20px 20px;
+        }
+
+        .welcome {
+            float: right;
+            color: #283048;
+        }
+
+        .logout {
+            float: right;
+            margin: 0px 10px 0px 10px;
+            text-decoration-line: none;
+            color: #283048;
+        }
+
+        .to_main {
+            float: left;
+            margin: 0px 0px 0px 10px;
+            text-decoration-line: none;
+            color: #283048;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #CC95C0;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+		h1{
+            font-family:Do Hyeon;
+            text-align: center;
+            text-decoration: none;
+            border: indianred solid;
+            border-width: 0 0 5px 0;
+            
+        }
+        h2{
+            font-family:Do Hyeon;
+        }
+        p{
+            font-family:Do Hyeon;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<div class="wrap">
+    <h1>오늘 하루 어떤 일이 있었나요?</h1>
+    <form action = "http://localhost:5000/fileUpload/{0}".format({{email}} method = "POST"></form>
+    <div class="input-group mb-3 choose_file">
+    <div class="filebox">
+        <label for="file" style="align-items: center;">업로드</label>>
+        <input id = "file" type = "file" name = "file" />
+</div>
+</div>
+    <!-- 
+        <div class="custom-file">
+           
+            <label class="custom-file-label" for="file">Image Upload</label>
+        </div>
+    </div> -->
+    
+    <div class="form-group enter_title">
+        <input id="title" type="email" class="form-control" aria-describedby="emailHelp"
+               placeholder="제목" method = "POST">
+    </div>
+    <div class="input-group">
+        <textarea id="content" class="form-control content" aria-label="With textarea"
+                  placeholder="작성하기 . . ." method = "POST"></textarea>
+    </div>
+    <div class="buttons">
+        <button buttontype="button" class = "btn-cancel" onclick="location.href='/profile' " style=background-color:#CC95C0>취소</button>
+        <!-- <button buttontype="button" >작성</button> -->
+        <input type = "submit" class = "btn-post" style=background-color:lightskyblue name="작성"/>
+    </form>
+</div>
+    </div>
+</div>

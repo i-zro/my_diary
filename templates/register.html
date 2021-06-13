@@ -2,6 +2,12 @@
 
 {% block head %}
 <title>Register with US</title>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+	</style>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&display=swap');
+	</style>
 {% endblock %}
 
 {%block body%}
@@ -16,11 +22,11 @@
 					
 				<form action="/register" method="POST" class="login100-form validate-form">
 				 	<span class="login100-form-title">
-					<br |>Sign up as a Member
+					<p style = "font-size:1.5em; font-family:Black Han Sans">회원가입 페이지</p>
 					</span>
 
                     <div class="wrap-input100 validate-input" data-validate = "Valid name is required: abc">
-						<input class="input100" type="text" name="name" placeholder="Your Name">
+						<input class="input100" type="text" name="name" placeholder="이름">
 						<span class="focus-input100"></span>
 						
 					</div>
@@ -32,22 +38,22 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="비밀번호">
 						<span class="focus-input100"></span>
 						
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Sign Up
+						<button class="login100-form-btn"; style="font-family:Black Han Sans">
+							회원가입
 						</button>
 					<br \></div><br \>
 
 				</form>
 				<div align='center' class="container-login100-form-btn">
 				<a href='http://127.0.0.1:5000/login'>
-						<button class="login100-form-btn">							
-							Login to an existing Account
+						<button class="login100-form-btn" style="font-family:Black Han Sans">							
+							⏪ 돌아가기
 						</button>
 						</a>
 					

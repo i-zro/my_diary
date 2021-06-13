@@ -3,9 +3,12 @@ import pymongo
 from pymongo import MongoClient
 from pymongo import CursorType
 from flask_login import LoginManager
+# from werkzeug import secure_filename
 from werkzeug.security import generate_password_hash,check_password_hash
 import bcrypt
 from flask_login import login_user,current_user
+import os
+from db_maker import *
 
 host = "localhost"
 port = "27017"
@@ -94,9 +97,9 @@ def moabogi():
     if g.user:
         return render_template('moabogi_select.html', username=det[0], email=det[1])
 
-@app.route('/list_diary')
-def list_diary():
-    return render_template('basic.html', email=det[1])
+@app.route('/my_diary')
+def my_diary():
+    return render_template('my_diary.html', username=det[0], email=det[1])
     
 @app.route('/profile')
 def profile():   
@@ -108,6 +111,21 @@ def profile():
    
     flash("You are kindly requested to Login first") 
     return redirect(url_for('login'))
+
+@app.route('/fileUpload/<email>', methods = ['GET', 'POST'])
+def upload_file(email):
+   if request.method == 'POST':
+      f = request.files['file']
+      title = request.json['title']
+      content = request.json['content']
+      
+      
+      #저장할 경로 + 파일명
+      if not ('../static/image_db/{0}'.format(email)):
+          os.system(mkdir('../static/image_db/{0}'.format(email)))
+      f.save('../static/image_db/{0}/{1}'.format(email, )+'.jpg')
+      insert_item_one(mongo, "izero3127@gmail.com", "오늘 힘드네", "diary", "diarylist")
+      return render_template('return.html')
 
 @app.before_request
 def before_request():

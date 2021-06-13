@@ -3,6 +3,9 @@
 
 {% block head %}
 <title>Log in</title>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+	</style>
 {% endblock %}
 
 
@@ -18,7 +21,7 @@
 			    				<form action="/login" method="POST" class="login100-form validate-form">
 				
 					<span class="login100-form-title">
-						Member Login
+						<p style = "font-size:1.5em; font-family:Black Han Sans">로그인 페이지</p>
 					</span>
 					
 					{% with messages = get_flashed_messages() %}
@@ -36,22 +39,22 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="비밀번호">
 						<span class="focus-input100"></span>
 						
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
+						<button class="login100-form-btn" style = "font-size:1.5em; font-family:Black Han Sans, monospace;">
+							로그인
 						</button>
 					</div><br \><br \>					
 						</form>	
 						
 					<div align='center' class="container-login100-form-btn">
 						<a href='http://127.0.0.1:5000/register'>
-						<button class="login100-form-btn">
-							Create a new Account							
+						<button class="login100-form-btn" style = "font-size:1.5em; font-family:Black Han Sans, monospace; color:green">
+							🐣회원가입 하러가기🐤							
 						</button>
 						</a>
 					</div><br \><br \><br \><br \><br \><br \><br \>
