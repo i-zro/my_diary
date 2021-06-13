@@ -8,8 +8,11 @@ port = "27017"
 mongo = MongoClient(host, int(port))
 print(mongo)
 
-def insert_item_one(mongo, email, title, diary, db_name=None, collection_name=None):
-    data = {"email" : email, "time" : datetime.now().strftime('%y년%m월%d일 %H시%M분%S초'), "title": title, "diary":diary}
+def insert_item_one(mongo, email, title, diary, fname, db_name=None, collection_name=None):
+    db = mongo.diary
+    collection = db.diary_list
+    posts = db.diary_list
+    data = {"email" : email, "time" : datetime.now().strftime('%y년%m월%d일 %H시%M분%S초'), "title": title, "diary":diary, "fname":fname}
     result = mongo[db_name][collection_name].insert_one(data).inserted_id
     return result
 

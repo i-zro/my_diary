@@ -136,13 +136,15 @@ def upload_file():
       f = request.files['file']
       title = request.form['title']
       content = request.form['content']
+      print(title)
+      print(content)
 
       
       #저장할 경로 + 파일명
     #   if not ('../static/image_db/{0}'.format(det[1])):
     #       os.system(mkdir('../static/image_db/{0}'.format(det[1])))
-      f.save('../static/image_db_{0}_{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
-      insert_item_one(mongo, det[1], title, content, "diary", "diarylist")
+      f.save('image_db/{0}_{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
+      insert_item_one(mongo, det[1], title, content, "diary", "diary_list", 'image_db/{0}_{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
       return render_template('return.html')
 
 @app.before_request
