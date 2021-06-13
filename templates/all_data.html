@@ -14,12 +14,14 @@
     {% else %}
     <table>
         <tr>
+            <th>사진</th>
             <th>날짜</th>
             <th>일기</th>
             <th>수정 / 삭제</th>
         </tr>
         {% for task in tasks %}
             <tr>
+                <td><img src="../../{{task.fname}}" alt="IMG" style="width:15%"></td>
                 <td>{{ task.time }}</td>
                 <td>{{ task.diary }}</td>
                 <td>
