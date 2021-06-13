@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+        <style>
+        *{ font-family : Do Hyeon}
+    </style></head>
+    
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">일기 모아보기</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">일기가 아직 없습니다!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>날짜</th>
+            <th>일기</th>
+            <th>수정 / 삭제</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.time }}</td>
+                <td>{{ task.diary }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+</div>
+{% endblock %}
+</html>

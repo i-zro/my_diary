@@ -45,3 +45,8 @@
 4. 원하는 메뉴 선택 화면
 ![image](https://user-images.githubusercontent.com/48379869/121805076-7f64e480-cc84-11eb-95cb-9bd5e16cf91f.png)
 
+5. 일기쓰기 화면
+![image](https://user-images.githubusercontent.com/48379869/121809749-04f28f80-cc99-11eb-90fc-5a63bf953f03.png)
+
+6. 일기 모아보기 화면
+![image](https://user-images.githubusercontent.com/48379869/121810343-716e8e00-cc9b-11eb-9108-37b008ff0d52.png)

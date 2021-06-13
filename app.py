@@ -100,6 +100,11 @@ def moabogi():
 @app.route('/my_diary')
 def my_diary():
     return render_template('my_diary.html', username=det[0], email=det[1])
+
+@app.route('/all_data/<email>')
+def all_data(email):
+    user_list = find_item(email)
+    return render_template('all_data.html', username=det[0], email=det[1], tasks = user_list)
     
 @app.route('/profile')
 def profile():   
@@ -118,7 +123,7 @@ def upload_file(email):
       f = request.files['file']
       title = request.json['title']
       content = request.json['content']
-      
+
       
       #저장할 경로 + 파일명
       if not ('../static/image_db/{0}'.format(email)):
