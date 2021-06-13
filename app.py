@@ -101,6 +101,11 @@ def moabogi():
 def my_diary():
     return render_template('my_diary.html', username=det[0], email=det[1])
 
+@app.route('/all_a')
+def all_a():
+    email = det[1]
+    return redirect(url_for('all_data', email=email))
+
 @app.route('/all_data/<email>')
 def all_data(email):
     user_list = find_item(email)
@@ -117,19 +122,20 @@ def profile():
     flash("You are kindly requested to Login first") 
     return redirect(url_for('login'))
 
-@app.route('/fileUpload/<email>', methods = ['GET', 'POST'])
-def upload_file(email):
+
+@app.route('/fileUpload', methods = ['POST', 'GET'])
+def upload_file():
    if request.method == 'POST':
       f = request.files['file']
-      title = request.json['title']
-      content = request.json['content']
+      title = request.form['title']
+      content = request.form['content']
 
       
       #저장할 경로 + 파일명
-      if not ('../static/image_db/{0}'.format(email)):
-          os.system(mkdir('../static/image_db/{0}'.format(email)))
-      f.save('../static/image_db/{0}/{1}'.format(email, )+'.jpg')
-      insert_item_one(mongo, "izero3127@gmail.com", "오늘 힘드네", "diary", "diarylist")
+      if not ('../static/image_db/{0}'.format(det[1])):
+          os.system(mkdir('../static/image_db/{0}'.format(det[1])))
+      f.save('../static/image_db/{0}/{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
+      insert_item_one(mongo, det[1], title, content, "diary", "diarylist")
       return render_template('return.html')
 
 @app.before_request

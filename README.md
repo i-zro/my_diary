@@ -49,4 +49,5 @@
 ![image](https://user-images.githubusercontent.com/48379869/121809749-04f28f80-cc99-11eb-90fc-5a63bf953f03.png)
 
 6. 일기 모아보기 화면
+뒤 이메일 로그인 구성에 따라 모아보기 리스트 화면부터 구성
 ![image](https://user-images.githubusercontent.com/48379869/121810343-716e8e00-cc9b-11eb-9108-37b008ff0d52.png)

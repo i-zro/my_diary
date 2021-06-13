@@ -164,13 +164,17 @@
 </head>
 
 <body>
+    
 <div class="wrap">
     <h1>오늘 하루 어떤 일이 있었나요?</h1>
-    <form action = "http://localhost:5000/fileUpload/{0}".format({{email}} method = "POST"></form>
+    
     <div class="input-group mb-3 choose_file">
     <div class="filebox">
+        <form action = "/fileUpload" method = "POST"></form>
         <label for="file" style="align-items: center;">업로드</label>>
         <input id = "file" type = "file" name = "file" />
+        <input type = "submit" class = "btn-post" style=background-color:lightskyblue name="작성"/>
+    </form>
 </div>
 </div>
     <!-- 
@@ -185,14 +189,13 @@
                placeholder="제목" method = "POST">
     </div>
     <div class="input-group">
-        <textarea id="content" class="form-control content" aria-label="With textarea"
+        <input id="content" class="form-control content" aria-label="With textarea"
                   placeholder="작성하기 . . ." method = "POST"></textarea>
     </div>
     <div class="buttons">
         <button buttontype="button" class = "btn-cancel" onclick="location.href='/profile' " style=background-color:#CC95C0>취소</button>
-        <!-- <button buttontype="button" >작성</button> -->
         <input type = "submit" class = "btn-post" style=background-color:lightskyblue name="작성"/>
-    </form>
 </div>
+
     </div>
 </div>
