@@ -169,32 +169,32 @@
     <h1>오늘 하루 어떤 일이 있었나요?</h1>
     
     <div class="input-group mb-3 choose_file">
-    <div class="filebox">
-        <form action = "/fileUpload" method = "POST"></form>
-        <label for="file" style="align-items: center;">업로드</label>>
-        <input id = "file" type = "file" name = "file" />
-        <input type = "submit" class = "btn-post" style=background-color:lightskyblue name="작성"/>
-    </form>
+    <!-- <div class="filebox"> -->
+        <form action = "/fileUpload" method = "POST" enctype="multipart/form-data">
+        <input type = "file" id = "file"  name = "file" />
+        <!-- <input type = "submit" style=background-color:lightskyblue name="사진 업로드"/> -->
+    
 </div>
 </div>
-    <!-- 
+    
         <div class="custom-file">
            
-            <label class="custom-file-label" for="file">Image Upload</label>
+            <!-- <label class="custom-file-label" for="file">Image Upload</label> -->
         </div>
-    </div> -->
+    </div>
     
     <div class="form-group enter_title">
-        <input id="title" type="email" class="form-control" aria-describedby="emailHelp"
+        <input id="title" type="text" name="title" class="form-control"
                placeholder="제목" method = "POST">
     </div>
     <div class="input-group">
-        <input id="content" class="form-control content" aria-label="With textarea"
+        <input id="content" name="content" class="form-control content" aria-label="With textarea"
                   placeholder="작성하기 . . ." method = "POST"></textarea>
     </div>
     <div class="buttons">
         <button buttontype="button" class = "btn-cancel" onclick="location.href='/profile' " style=background-color:#CC95C0>취소</button>
         <input type = "submit" class = "btn-post" style=background-color:lightskyblue name="작성"/>
+    </form>
 </div>
 
     </div>

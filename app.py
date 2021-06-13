@@ -122,6 +122,13 @@ def profile():
     flash("You are kindly requested to Login first") 
     return redirect(url_for('login'))
 
+@app.route('/getimg', methods = ['GET', 'POST',])
+def upload_img():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save('../static/image_db/{0}/{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
+
+
 
 @app.route('/fileUpload', methods = ['POST', 'GET'])
 def upload_file():
@@ -132,9 +139,9 @@ def upload_file():
 
       
       #저장할 경로 + 파일명
-      if not ('../static/image_db/{0}'.format(det[1])):
-          os.system(mkdir('../static/image_db/{0}'.format(det[1])))
-      f.save('../static/image_db/{0}/{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
+    #   if not ('../static/image_db/{0}'.format(det[1])):
+    #       os.system(mkdir('../static/image_db/{0}'.format(det[1])))
+      f.save('../static/image_db_{0}_{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
       insert_item_one(mongo, det[1], title, content, "diary", "diarylist")
       return render_template('return.html')
 
