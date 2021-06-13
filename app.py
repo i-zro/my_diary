@@ -34,7 +34,7 @@ def login_post():
     password=request.form.get('pass')
     data=db.credentials
     flag=False    
-    session.pop('User',None)
+    # session.pop('User',None)
     
     if email is None or password is None:
         flash("Please fill both the fields and Try Again")
@@ -57,9 +57,6 @@ def login_post():
         return redirect(url_for('login'))
     
     return redirect(url_for('login'))
-   
-
-    
 
 @app.route('/register')
 def reg():
@@ -92,6 +89,15 @@ def logoute():
     det=[]  
     return redirect(url_for('login'))
 
+@app.route('/moabogi')
+def moabogi():
+    if g.user:
+        return render_template('moabogi_select.html', username=det[0], email=det[1])
+
+@app.route('/list_diary')
+def list_diary():
+    return render_template('basic.html', email=det[1])
+    
 @app.route('/profile')
 def profile():   
     if g.user:
@@ -111,6 +117,6 @@ def before_request():
         g.user=session['user']
 
 if __name__=='__main__':
-    app.secret_key = 'hellouserapi'
+    app.secret_key = 'izero'
     app.run(debug=True)
     
