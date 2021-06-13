@@ -25,7 +25,9 @@ def find_item(email):
         # pprint.pprint(post)
         result.append(post)
     return result
-
+def delete_item_one(mongo, condition, db_name=None, collection_name=None):
+    result = mongo[db_name][collection_name].delete_one(condition)
+    return result
 print(find_item("izero3127@gmail.com"))
 
 # collection = posts['diary_list']

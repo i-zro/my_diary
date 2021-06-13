@@ -110,6 +110,11 @@ def all_a():
 def all_data(email):
     user_list = find_item(email)
     return render_template('all_data.html', username=det[0], email=det[1], tasks = user_list)
+
+@app.route('/delete/<id>')
+def delete(id):
+    delete_item_one(mongo, condition={"_id":id},db_name="diary", collection_name="diary_list")
+    return render_template('dreturn.html')
     
 @app.route('/profile')
 def profile():   
@@ -140,7 +145,7 @@ def upload_file():
       print(content)
 
       if f:
-          f.save('image_db/{0}_{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
+          f.save('templates/image_db/{0}_{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg')
           insert_item_one(mongo, det[1], title, content, 'image_db/{0}_{1}'.format(det[1], datetime.now().strftime('%y년%m월%d일%H시%M분%S초'))+'.jpg', "diary", "diary_list")
     
       else:

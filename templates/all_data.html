@@ -21,11 +21,11 @@
         </tr>
         {% for task in tasks %}
             <tr>
-                <td><img src="../../{{task.fname}}" alt="IMG" style="width:15%"></td>
+                <td><img src="{{task.fname}}" ></td>
                 <td>{{ task.time }}</td>
                 <td>{{ task.diary }}</td>
                 <td>
-                    <a href="/delete/{{task.id}}">Delete</a>
+                    <a href="/delete/{{task._id}}">Delete</a>
                     <br>
                     <a href="/update/{{task.id}}">Update</a>
                 </td>
